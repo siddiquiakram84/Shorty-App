@@ -53,10 +53,16 @@ We welcome contributions! Please read our contribution guidelines before submitt
 License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
-Acknowledgments 🙌
-We'd like to express our gratitude to the following:
+## Acknowledgments 🙌
 
-The open-source community for inspiration and collaboration.
-[Contributor Names]: For their invaluable contributions to Shorty-App.
-[Any other acknowledgments or credits]
+I would like to extend my sincere gratitude to:
+
+- **Gulzar Ahmad:** My mentor and guide throughout the development of Shorty-App. Your support, insights, and encouragement have been invaluable. This project wouldn't have been possible without your expertise and guidance.
+
+- **The open-source community:** For inspiration, collaboration, and the wealth of knowledge shared.
+
+- **[Contributor Names]:** For their invaluable contributions to Shorty-App.
+
+- **[Any other acknowledgments or credits]**
+
 Your support and contributions make Shorty-App better for everyone. Thank you!
