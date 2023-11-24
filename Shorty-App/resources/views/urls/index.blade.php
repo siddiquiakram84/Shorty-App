@@ -19,7 +19,7 @@
                         name="original_url"
                         required
                         maxlength="255"
-                        placeholder="{{ __('Original Url') }}"
+                        placeholder="{{ __('Target Link') }}"
                         class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm p-2"
                         value="{{ old('original_url') }}"
                     />
@@ -37,9 +37,10 @@
                     <th class="py-2 px-4">User</th>
                     <th class="py-2 px-4">Created At</th>
                     <th class="py-2 px-4">Title</th>
-                    <th class="py-2 px-4">Original Url</th>
-                    <th class="py-2 px-4">Shortener Url</th>
+                    <th class="py-2 px-4 w-1/8 overflow-hidden overflow-ellipsis">Target Link</th>
+                    <th class="py-2 px-4">Short Link</th>
                     <th class="py-2 px-4">Actions</th>
+                    <th class="py-2 px-4">Analytics</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,6 +82,7 @@
                                                 </svg>
                                             </button>
                                         </x-slot>
+                                        
                                         <x-slot name="content">
                                             <x-dropdown-link :href="route('urls.edit', $item)">
                                                 {{ __('Edit') }}
@@ -95,6 +97,13 @@
                                         </x-slot>
                                     </x-dropdown>
                                 @endif
+                            </td>
+                            <td class="py-2 px-4">
+                                {{-- <p class="mt-4 text-lg font-bold font-poppins text-gray-900 w-[100%] overflow-auto break-all"> --}}
+                                    <a class = "text-blue-500 hover:underline" href="{{ route('analytics', ['urlId' => $item->id]) }}" target="_blank" class="magical-link hover:underline">
+                                        {{ route('analytics', ['urlId' => $item->id]) }}
+                                    </a>
+                                </p>
                             </td>
                         </tr>
                     @endif

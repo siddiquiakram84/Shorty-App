@@ -15,7 +15,12 @@ use App\Http\Controllers\AnalyticsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+require __DIR__.'/auth.php';
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 // route for login
 Route::get('/', function () {
     return view('auth.login');
@@ -33,13 +38,13 @@ Route::resource('urls', UrlController::class)
 // route for get shortener url
 Route::get('{shortener_url}', [UrlController::class, 'shortenLink'])->name('shortener-url');
 
-// Route for Tracking Analytics
-// Route::get('/analytics/{urlId}', [UrlController::class, 'showAnalytics'])->name('analytics');
+Route::get('analytics/{urlId}', [AnalyticsController::class, 'showAnalytics'])->name('analytics');
+Route::post('save-location', [AnalyticsController::class, 'saveLocation'])->name('save-location');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';

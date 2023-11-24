@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Url extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'user_id', 'title', 'original_url', 'shortener_url'
     ];
@@ -15,5 +16,14 @@ class Url extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function clicks()
+    {
+        return $this->hasMany(Click::class);
+    }
+    
+    public function analytics()
+    {
+        return $this->hasMany(Analytics::class);
     }
 }
